@@ -1,7 +1,6 @@
-# pubassist
-Publishers' Assistant
+# Publishers' Assistant
 
-May 9, 2019 - This repository has been created for new PubAssist development.  It should remain private until we have a working model.
+**Created: May 9, 2019** - This repository has been created for new PubAssist development.  It should remain private until we have a working model.
 
 Publishers' Assistant is a family of products developed for the publishing industry.  There are many peculiarities to the publishing industry.  Over the years, Publishers' Assistant has been enhanced to support the majority of issues that publishers face.  
 
@@ -9,22 +8,25 @@ At the heart of the existing product is an accounting system that handles most b
 
 PubAssist, however, is a legacy, PC-based product.  This respository is intended for new development of web-based applications using the LAMP stack.  These applications are intended to replace the functions that are unique to PubAssist over time.
 
-##New Development Overview
-PubAssist is a business management software designed for publishing companies. It helps businesses efficiently manage their day-to-day operations, including tracking orders, returns, purchase orders, expenses, and calculating royalties based on sales. PubAssist is a comprehensive solution that streamlines various business functions and is built to support the unique needs of the publishing industry.
+## New Development Overview 
+**Updated December, 2024:**
 
-The software package includes various web-based applications developed using the LAMP stack, which replace legacy functions from the previous PC-based version of PubAssist. RAPIDS, a core library, plays a crucial role in this transition by generating single-page applications (SPAs) for each data resource. These SPAs allow users to interact with the system's data, making management tasks more efficient and accessible.
+***Publishers' Assistant*** includes various web-based applications developed using the LAMP stack, which replace legacy functions from the previous PC-based version of PubAssist. 
 
-##Key Features
-Order Management: Track and manage customer orders, returns, and related data.
-Purchase Order Tracking: Streamline the creation, approval, and monitoring of purchase orders.
-Expense Management: Keep track of business expenses for reporting and decision-making.
-Royalty Calculation: Automatically calculate royalties based on sales and other related parameters.
-Customizable Reports: Generate reports to provide insights into business performance, including financial data and operational metrics.
-System Requirements
-Server: A LAMP stack (Linux, Apache, MySQL, PHP)
-PHP Version: 7.4 or higher
-Database: MySQL or MariaDB (recommended)
-Installation
+***RAPIDS***, a core library, plays a crucial role in this transition by generating *single-page applications* **(SPAs)** for each data resource. These SPAs allow users to interact with the system's data, making management tasks more efficient and accessible.  The consistency provided by the SPA interface provides a comfort to users regardless of where they are in the application.
+
+## Key Features
+- **Contact Management** Capture and categorize any contact regardless of their role in your business.  (e.g. customers, authors, suppliers, etc.)
+- **Order Management:** Track and manage customer orders, returns, and related data.
+- **Purchase Order Tracking:** Streamline the creation, approval, and monitoring of purchase orders.
+- **Expense Management:** Keep track of business expenses for reporting and decision-making.
+- **Royalty (general liabilities) Calculation:** Automatically calculate royalties based on sales and other related parameters.
+- **Liabilities incurred when you get paid!** PubAssist calculates your liabilities automatically, but you don't incur them until after you have been paid.
+## System Requirements
+- Server: A LAMP stack (Linux, Apache, MySQL, PHP)
+- PHP Version: 7.4 or higher
+- Database: MySQL or MariaDB (recommended)
+## Installation
 Clone the repository:
 
 bash
@@ -39,20 +41,20 @@ Configure the database connection by editing the config.php file in the app dire
 
 Deploy the application on your server by visiting the installation URL.
 
-Structure and Components
+## Structure and Components
 1. RAPIDS Library
 RAPIDS (Rapid API Data Services) is a PHP library that facilitates the generation of single-page applications (SPAs) for each data resource. These SPAs allow users to interact with the system’s database, and they expose a REST API for integration with other applications.
 
-* Generator: The generator.php file in the generator directory is used to create new SPAs for each resource. For example, to generate an application for the contact resource, you would use the following URL:
+- Generator: The generator.php file in the generator directory is used to create new SPAs for each resource. For example, to generate an application for the contact resource, you would use the following example URL:
 
 ```
 Copy code
-https://dev.pubassist.com/generator/generator.php?resource=contact
+https://<<yourdomain.com>>/generator/generator.php?resource=contact
 ```
 
-* Generated Applications: The generated SPAs are placed in the demo directory for use. This ensures that each application is available for interaction with the web service while maintaining a clean copy.
+- Generated Applications: The generated SPAs are placed in the demo directory for use. This ensures that each application is available for interaction with the web service while maintaining a clean copy.  If you make a change to the data structure, simply regenerate the application without interrupting your existing service.
 
-2. Example Classes
+2. Example Class for a Contact resource.
 Below is a sample class generated for the contact resource:
 
 php
@@ -116,21 +118,22 @@ class contactForm extends form {
 
 ```
 
-3. Application Structure
+3. **Application Structure**
 The structure of the PubAssist application is designed to be easy to navigate and deploy. Key directories include:
 
-/app: Contains the core PHP files for handling business logic.
-/generator: Contains the code used to generate SPAs for each resource.
-/demo: Contains generated SPAs that are available for the web service.
-/config: Contains configuration files for setting up the application environment.
-Usage
+**/demo**: Application folder (can be renamed) contains generated SPAs that are available for the web service.  This will be the root directory for your web application.
+**/<appresourceName>:** Contains the files necessary to execute the SPA for the resource.
+**/generator:** Contains the code used to generate SPAs for each resource.  Kept separate to avoid problems with the live application.
+**/config**: Contains configuration files for setting up the application environment.
+
+## Usage
 Once installed, PubAssist is ready for use out of the box. You can log in to the application via the web interface and begin managing your business operations. The system does not require any customization or tailoring for basic functionality, making it easy to deploy in a variety of environments.
 
-##Contributing
+## Contributing 
 1. Fork the repository.
 2. Create a new branch.
 3. Make your changes.
 4. Submit a pull request with a detailed explanation of your changes.
 
-##License
+## License
 This project is licensed under the MIT License.
