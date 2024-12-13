@@ -42,7 +42,7 @@ Configure the database connection by editing the config.php file in the app dire
 Deploy the application on your server by visiting the installation URL.
 
 ## Structure and Components
-1. RAPIDS Library
+1. **RAPIDS Library**
 RAPIDS (Rapid API Data Services) is a PHP library that facilitates the generation of single-page applications (SPAs) for each data resource. These SPAs allow users to interact with the system’s database, and they expose a REST API for integration with other applications.
 
 - Generator: The generator.php file in the generator directory is used to create new SPAs for each resource. For example, to generate an application for the contact resource, you would use the following example URL:
@@ -52,10 +52,10 @@ Copy code
 https://<<yourdomain.com>>/generator/generator.php?resource=contact
 ```
 
-- Generated Applications: The generated SPAs are placed in the demo directory for use. This ensures that each application is available for interaction with the web service while maintaining a clean copy.  If you make a change to the data structure, simply regenerate the application without interrupting your existing service.
+- Generated Applications: The generated SPAs should be moved to the demo directory for use. This ensures that each application is available for interaction with the web service while maintaining a clean copy.  If you make a change to the data structure, simply regenerate the application without interrupting your existing service.
 
-2. Example Class for a Contact resource.
-Below is a sample class generated for the contact resource:
+2. Sample Class for the Contact resource.
+Nearly every application requires a contact maintenance module.  Below is a sample class generated for the contact resource:
 
 php
 Copy code
@@ -121,10 +121,10 @@ class contactForm extends form {
 3. **Application Structure**
 The structure of the PubAssist application is designed to be easy to navigate and deploy. Key directories include:
 
-**/demo**: Application folder (can be renamed) contains generated SPAs that are available for the web service.  This will be the root directory for your web application.
-**/<appresourceName>:** Contains the files necessary to execute the SPA for the resource.
-**/generator:** Contains the code used to generate SPAs for each resource.  Kept separate to avoid problems with the live application.
-**/config**: Contains configuration files for setting up the application environment.
+- **/demo**: Application folder (can be renamed) contains generated SPAs that are available for the web service.  This will be the root directory for your web application.
+- **/"resourceName":** Contains the files necessary to execute the SPA for the resource.
+- **/generator:** Contains the code used to generate SPAs for each resource.  Generated SPAs are kept in this folder to avoid problems with the live application.
+- **/config**: Contains configuration files for setting up the application environment.
 
 ## Usage
 Once installed, PubAssist is ready for use out of the box. You can log in to the application via the web interface and begin managing your business operations. The system does not require any customization or tailoring for basic functionality, making it easy to deploy in a variety of environments.
