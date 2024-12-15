@@ -29,9 +29,9 @@ PubAssist, however, is a legacy, PC-based product.  This respository is intended
 ## Installation
 Clone the repository:
 
-bash
-Copy code
+```sh
 git clone https://github.com/<your-username>/PubAssist.git
+```
 
 Set up your LAMP stack environment and configure the web server (Apache) to point to the directory where PubAssist is located.
 
@@ -48,7 +48,6 @@ RAPIDS (Rapid API Data Services) is a PHP library that facilitates the generatio
 - Generator: The generator.php file in the generator directory is used to create new SPAs for each resource. For example, to generate an application for the contact resource, you would use the following example URL:
 
 ```
-Copy code
 https://<<yourdomain.com>>/generator/generator.php?resource=contact
 ```
 
@@ -57,9 +56,7 @@ https://<<yourdomain.com>>/generator/generator.php?resource=contact
 2. Sample Class for the Contact resource.
 Nearly every application requires a contact maintenance module.  Below is a sample class generated for the contact resource:
 
-php
-Copy code
-```
+```php
 <?php
 
 // contact.class.php - These classes are specific to the contact resource.
